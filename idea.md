@@ -1,0 +1,10 @@
+- ingresar a mi whatsapp desde la terminal
+- seleccionar chats y visualizar mensajes (no se como, si guardando los contactos o simulando la navegacion en el navegador y obteniendo los chats)
+- crear/actualizar prompts para utilizar luego con ia para responder como si fuese yo
+- interfaz en la cli estilo hacker, con background loco nerdazo
+- configuracion de la app para elegir que tipo de ia usar, openai u ollama (local)
+- mensajes en tiempo real
+- atajos rapidos para stickers (si es posible)
+- atajos rapidos para emojis (si es posible)
+- app dockerizada para que otras personas y compartir el repo
+- persistencia en la sesion aunque la terminal se cierre
