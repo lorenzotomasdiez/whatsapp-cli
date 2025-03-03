@@ -1,10 +1,10 @@
-- ingresar a mi whatsapp desde la terminal
-- seleccionar chats y visualizar mensajes (no se como, si guardando los contactos o simulando la navegacion en el navegador y obteniendo los chats)
-- crear/actualizar prompts para utilizar luego con ia para responder como si fuese yo
-- interfaz en la cli estilo hacker, con background loco nerdazo
-- configuracion de la app para elegir que tipo de ia usar, openai u ollama (local)
-- mensajes en tiempo real
-- atajos rapidos para stickers (si es posible)
-- atajos rapidos para emojis (si es posible)
-- app dockerizada para que otras personas y compartir el repo
-- persistencia en la sesion aunque la terminal se cierre
+- Access my WhatsApp from the terminal
+- Select chats and view messages (not sure how, either by saving contacts or simulating browser navigation and getting chats)
+- Create/update prompts to use later with AI to respond as if it were me
+- CLI interface with a hacker style, with nerdy crazy background
+- App configuration to choose which type of AI to use, OpenAI or Ollama (local)
+- Real-time messages
+- Quick shortcuts for stickers (if possible)
+- Quick shortcuts for emojis (if possible)
+- Dockerized app to share with others and share the repo
+- Session persistence even when the terminal is closed
