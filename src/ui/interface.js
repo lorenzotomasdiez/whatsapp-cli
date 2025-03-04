@@ -58,7 +58,7 @@ class Interface {
                 }
             },
             keys: true,
-            vi: true,
+            vi: false,
             mouse: true,
             scrollbar: {
                 ch: '║',
@@ -98,7 +98,7 @@ class Interface {
             },
             mouse: true,
             keys: true,
-            vi: true,
+            vi: false,
             tags: true,
             wrap: false
         });
@@ -122,10 +122,10 @@ class Interface {
                     }
                 }
             },
-            inputOnFocus: true,
+            inputOnFocus: false,
             mouse: true,
             keys: true,
-            vi: true,
+            vi: false,
             tags: true
         });
 

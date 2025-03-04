@@ -43,17 +43,27 @@ const SESSION_CONFIG = {
 
 // Vim-style keybindings
 const KEY_BINDINGS = {
-    QUIT: ['C-c'],                    // Control-c para salir de la aplicación
-    FOCUS_CHAT_LIST: ['h'],           // h para ir a la lista de chats
-    FOCUS_CHAT: ['l'],               // l para ir al área de mensajes
-    FOCUS_INPUT: ['i'],               // i para modo inserción
-    REFRESH: ['r'],                   // r para refrescar
-    RETURN_TO_NORMAL: ['escape'],     // Escape para volver al modo normal
-    CLEAR_CHAT: ['escape'],           // Escape en modo normal limpia el chat
-    NAV_UP: ['k'],                    // k para navegar hacia arriba
-    NAV_DOWN: ['j'],                  // j para navegar hacia abajo
-    SELECT: ['enter'],                // Enter para seleccionar
-    SEND: ['enter']                   // Enter para enviar mensaje
+    QUIT: [':q', 'C-c'],
+    REFRESH: ['r'],
+    FOCUS_CHAT_LIST: ['h'],
+    FOCUS_CHAT: ['l'],
+    FOCUS_INPUT: ['i'],
+    NAV_UP: ['k', 'up'],
+    NAV_DOWN: ['j', 'down'],
+    SELECT: ['enter'],
+    CLEAR_CHAT: ['escape'],
+    SAVE_PROMPT: [':w', 'C-s'],
+    SHOW_PROMPTS: [':prompts', ':p'],
+    CREATE_PROMPT: ['o'],
+    EDIT_PROMPT: ['e'],
+    DELETE_PROMPT: ['dd'],
+    YANK_PROMPT: ['y'],
+    PASTE_PROMPT: ['p'],
+    SEARCH_PROMPTS: ['/'],
+    NEXT_PROMPT: ['n'],
+    PREV_PROMPT: ['N'],
+    RETURN_TO_NORMAL: ['escape'],
+    SEND: ['enter']
 };
 
 module.exports = {
