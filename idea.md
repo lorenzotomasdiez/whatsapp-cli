@@ -8,3 +8,4 @@
 - Quick shortcuts for emojis (if possible)
 - Dockerized app to share with others and share the repo
 - Session persistence even when the terminal is closed
+- VIM Friendly
