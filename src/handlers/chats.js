@@ -54,10 +54,15 @@ class ChatHandler {
     async _handleChatSelection(index) {
         const chats = this.whatsappClient.getChats();
         if (chats && chats[index]) {
+            // Limpiar el contenido actual antes de cargar el nuevo chat
+            this.messageBox.setContent('');
+            this.screen.render();
+
+            const selectedChat = chats[index];
             // Si es el mismo chat, solo refrescamos los mensajes
-            const isSameChat = this.selectedChat && this.selectedChat.id._serialized === chats[index].id._serialized;
+            const isSameChat = this.selectedChat && this.selectedChat.id._serialized === selectedChat.id._serialized;
             
-            this.selectedChat = chats[index];
+            this.selectedChat = selectedChat;
             this.whatsappClient.setSelectedChat(this.selectedChat);
             this.messageBox.setLabel(` Messages: ${this.selectedChat.name || this.selectedChat.id._serialized} `);
             

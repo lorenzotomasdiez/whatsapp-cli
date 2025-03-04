@@ -12,14 +12,14 @@ const MessageHandler = require('./handlers/messages');
 class WhatsAppTerminal {
     constructor() {
         // Initialize interface
-        this.interface = new Interface();
+        this.ui = new Interface();
         
         // Get UI components
-        this.screen = this.interface.getScreen();
-        this.chatList = this.interface.getChatList();
-        this.messageBox = this.interface.getMessageBox();
-        this.inputBox = this.interface.getInputBox();
-        this.statusBar = this.interface.getStatusBar();
+        this.screen = this.ui.getScreen();
+        this.chatList = this.ui.getChatList();
+        this.messageBox = this.ui.getMessageBox();
+        this.inputBox = this.ui.getInputBox();
+        this.statusBar = this.ui.getStatusBar();
 
         // Initialize components
         this.whatsappClient = new WhatsAppClient(this.messageBox, this.screen);
@@ -30,7 +30,8 @@ class WhatsAppTerminal {
             this.inputBox,
             this.messageBox,
             this.statusBar,
-            this.whatsappClient
+            this.whatsappClient,
+            this.ui
         );
         this.chatHandler = new ChatHandler(
             this.chatList,
@@ -63,7 +64,7 @@ class WhatsAppTerminal {
     initialize() {
         try {
             // Initial render to ensure screen is ready
-            this.interface.render();
+            this.ui.render();
 
             // Start matrix animation first
             this.matrixAnimation.start();

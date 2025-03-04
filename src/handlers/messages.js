@@ -63,7 +63,9 @@ class MessageHandler {
         try {
             await this.whatsappClient.sendMessage(message);
             // Refrescar mensajes después de enviar
-            await this._refreshMessages();
+            setTimeout(() => {
+                this._refreshMessages();
+            }, 1000);
         } catch (error) {
             this.messageBox.setContent(`Error sending message: ${error.message}`);
             this.screen.render();

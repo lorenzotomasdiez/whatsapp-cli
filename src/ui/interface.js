@@ -221,6 +221,30 @@ class Interface {
     render() {
         this.screen.render();
     }
+
+    /**
+     * Show chat list and adjust message box width
+     */
+    showChatList() {
+        this.chatList.show();
+        this.messageBox.left = '30%';
+        this.messageBox.width = '70%';
+        this.inputBox.left = '30%';
+        this.inputBox.width = '70%';
+        this.screen.render();
+    }
+
+    /**
+     * Hide chat list and expand message box
+     */
+    hideChatList() {
+        this.chatList.hide();
+        this.messageBox.left = 0;
+        this.messageBox.width = '100%';
+        this.inputBox.left = 0;
+        this.inputBox.width = '100%';
+        this.screen.render();
+    }
 }
 
 module.exports = Interface; 

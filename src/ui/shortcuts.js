@@ -5,13 +5,14 @@
 const { KEY_BINDINGS } = require('../utils/constants');
 
 class ShortcutHandler {
-    constructor(screen, chatList, inputBox, messageBox, statusBar, client) {
+    constructor(screen, chatList, inputBox, messageBox, statusBar, client, ui) {
         this.screen = screen;
         this.chatList = chatList;
         this.inputBox = inputBox;
         this.messageBox = messageBox;
         this.statusBar = statusBar;
         this.client = client;
+        this.ui = ui;
         this.mode = 'NORMAL'; // NORMAL, INSERT, CHAT
         this._updateStatusBar();
     }
@@ -63,8 +64,18 @@ class ShortcutHandler {
     _setupNormalModeShortcuts() {
         // Focus chat list (h - left movement in Vim)
         this.screen.key(KEY_BINDINGS.FOCUS_CHAT_LIST, () => {
-            if (this.mode === 'NORMAL') {
+            if (this.mode === 'NORMAL' || this.mode === 'CHAT') {
+                this.ui.showChatList();
                 this._focusChatList();
+            }
+        });
+
+        // Focus chat area (l - right movement in Vim)
+        this.screen.key(KEY_BINDINGS.FOCUS_CHAT, () => {
+            if ((this.mode === 'NORMAL' || this.mode === 'CHAT') && this.client.getSelectedChat()) {
+                this.ui.hideChatList();
+                this.messageBox.focus();
+                this._updateStatusBar('j/k: scroll │ h: chats │ i: write │ r: refresh │ Esc: back');
             }
         });
 
@@ -96,7 +107,8 @@ class ShortcutHandler {
                 const selectedIndex = this.chatList.selected;
                 this._selectChat(selectedIndex);
                 this.mode = 'CHAT';
-                this._updateStatusBar('j/k: navigate │ i: write │ r: refresh │ Esc: back');
+                this.ui.hideChatList();
+                this._updateStatusBar('j/k: scroll │ h: chats │ l: messages │ i: write │ r: refresh │ Esc: back');
             }
         });
 
@@ -106,7 +118,23 @@ class ShortcutHandler {
                 this.mode = 'NORMAL';
                 this.screen.emit('start-matrix');
                 this.chatList.emit('clear-selection');
+                this.ui.showChatList();
                 this._updateStatusBar('j/k: navigate │ Enter: select chat');
+            }
+        });
+
+        // Scroll chat messages
+        this.messageBox.key(KEY_BINDINGS.NAV_DOWN, () => {
+            if (this.mode === 'CHAT') {
+                this.messageBox.scroll(1);
+                this.screen.render();
+            }
+        });
+
+        this.messageBox.key(KEY_BINDINGS.NAV_UP, () => {
+            if (this.mode === 'CHAT') {
+                this.messageBox.scroll(-1);
+                this.screen.render();
             }
         });
     }

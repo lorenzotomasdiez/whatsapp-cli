@@ -45,6 +45,7 @@ const SESSION_CONFIG = {
 const KEY_BINDINGS = {
     QUIT: ['C-c'],                    // Control-c para salir de la aplicación
     FOCUS_CHAT_LIST: ['h'],           // h para ir a la lista de chats
+    FOCUS_CHAT: ['l'],               // l para ir al área de mensajes
     FOCUS_INPUT: ['i'],               // i para modo inserción
     REFRESH: ['r'],                   // r para refrescar
     RETURN_TO_NORMAL: ['escape'],     // Escape para volver al modo normal
